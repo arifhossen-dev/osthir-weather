@@ -6,8 +6,7 @@ const city = document.querySelector("#city");
 
 // populate data in dom
 const renderWeatherData = (data) => {
-  const { location, current } = data;
-  const { condition, humidity, wind_kph, uv, is_day } = current;
+  const { location, current:{ condition,temp_c, humidity, wind_kph, uv, is_day, ...moreData } } = data;
   const { icon, text } = condition;
 
   let dayStatus = is_day ? "Day" : "Night";
@@ -38,7 +37,7 @@ const renderWeatherData = (data) => {
                 <time>Today ${localTime}</time> || ${dayStatus} 
                 <img src="${dayStatusIcon}" width="20"/>
               </div>
-              <h2 class="display-2"><strong>${current.temp_c}°C</strong></h2>
+              <h2 class="display-2"><strong>${temp_c}°C</strong></h2>
               <p class="text-muted mb-0">${location.name}, ${location.country}</p>
             </div>
             <div class="">
@@ -81,9 +80,9 @@ const renderWeatherData = (data) => {
   // load more data
   document.getElementById("more").addEventListener("click", () => {
     let items = "";
-    for (const item in current) {
-      if (Object.hasOwnProperty.call(current, item)) {
-        const element = current[item];
+    for (const item in moreData) {
+      if (Object.hasOwnProperty.call(moreData, item)) {
+        const element = moreData[item];
         let itemDta = item.split("_").join(" ").toUpperCase();
         if (
           typeof element !== "object" &&
