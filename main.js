@@ -1,13 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getWeatherData } from "./api.js";
 
-const form = document.querySelector("#form");
-const city = document.querySelector("#city");
-
 // populate data in dom
 const renderWeatherData = (data) => {
-  const { location, current:{ condition,temp_c, humidity, wind_kph, uv, is_day, ...moreData } } = data;
-  const { icon, text } = condition;
+  const {
+    location,
+    current: {
+      condition: { icon, text },
+      temp_c,
+      humidity,
+      wind_kph,
+      uv,
+      is_day,
+      ...moreData
+    },
+  } = data;
 
   let dayStatus = is_day ? "Day" : "Night";
   let dayStatusIcon = is_day
@@ -112,6 +119,10 @@ const renderWeatherData = (data) => {
     `;
   });
 };
+
+// form and input selection
+const form = document.querySelector("#form");
+const city = document.querySelector("#city");
 
 // getting user location using form input
 form.addEventListener("submit", async (e) => {
