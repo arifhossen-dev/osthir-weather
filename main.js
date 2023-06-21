@@ -12,8 +12,8 @@ const renderWeatherData = (data) => {
 
   let dayStatus = is_day ? "Day" : "Night";
   let dayStatusIcon = is_day
-    ? "/public/day-forecast-hot-svgrepo-com.svg"
-    : "/public/night-sleep-svgrepo-com.svg";
+    ? "public/day-forecast-hot-svgrepo-com.svg"
+    : "public/night-sleep-svgrepo-com.svg";
 
   // Converting date to current time 12 hour format
   const localTime = new Intl.DateTimeFormat("default", {
@@ -50,20 +50,20 @@ const renderWeatherData = (data) => {
       </div>
       <div class="d-flex justify-content-between">
         <div>
-          <div class="d-flex align-items-center gap-2">
-            <img src="./public/humidity-air-conditining-ac-conditioner-split-ac-indoor-ac-svgrepo-com.svg"
+          <div class="d-flex flex-column flex-sm-row gap-2">
+            <img src="public/humidity-air-conditining-ac-conditioner-split-ac-indoor-ac-svgrepo-com.svg"
               width="50" />
             <span class="fs-3"> Humidity: ${humidity}%</span>
           </div>
           <div class="d-flex mt-2 pt-2 border-top align-items-center gap-2">
-            <img src="./public/uv-index-alt-svgrepo-com.svg"
+            <img src="public/uv-index-alt-svgrepo-com.svg"
               width="50" />
             <span class="fs-3"> UV: ${uv}</span>
           </div>
         </div>
         <div>
-          <div class="d-flex align-items-center gap-2">
-            <img src="./public/wind-svgrepo-com.svg" width="40" />
+          <div class="d-flex flex-column flex-sm-row gap-2">
+            <img src="public/wind-svgrepo-com.svg" width="40" />
             <span class="fs-3">Wind: ${wind_kph}/kph</span>
           </div>
           <div class="text-end mt-4">
