@@ -1,1 +1,1 @@
-My Osthir Weather application link is: https://osthir-weather.netlify.app/
+My Osthir Weather application link is: https://osthirweather.netlify.app/
